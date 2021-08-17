@@ -6,7 +6,11 @@ export const rendimento = [
         },
         empresa: {
             cnpj: "51.838.760/0001-03",
-            nome: "Petz"
+            nome: "Petz",
+            endereco: "Rua do cachorro",
+            telefone: "5505-9195",
+            celular: "99812-6189",
+            email: "cachorro@petz.com.br"
         },
         valor_total: "15000",
         inss: "1257",

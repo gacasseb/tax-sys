@@ -39,6 +39,7 @@ const MainLayout = props => {
                     >
                         <SubMenu key="menu-admin" icon={<UserOutlined />} title="Menu">
                             <Menu.Item key="/consultar-rendimento" onClick={ _ => redirect('/consultar-rendimento')}>Consultar rendimento</Menu.Item>
+                            <Menu.Item key="/consultar-empresa" onClick={ _ => redirect('/consultar-empresa')}>Consultar empresa</Menu.Item>
                             <Menu.Item key="/orcamento" onClick={ _ => redirect('/pessoa')}>Cadastrar contribuinte</Menu.Item>
                             <Menu.Item key="/solicitacoes" onClick={ _ => redirect('/empresa')}>Cadastrar empresa</Menu.Item>
                             <Menu.Item key="/rendimento" onClick={ _ => redirect('/rendimento')}>Cadastrar rendimento</Menu.Item>

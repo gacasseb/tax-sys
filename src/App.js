@@ -9,6 +9,7 @@ import Pessoa from './views/Pessoa';
 import Empresa from './views/Empresa';
 import Rendimento from './views/Rendimento';
 import ConsultarRendimento from './views/ConsultarRendimento';
+import ConsultarEmpresa from './views/ConsultarEmpresa';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
               </Route>
               <Route exact path='/consultar-rendimento'>
                 <ConsultarRendimento></ConsultarRendimento>
+              </Route>
+              <Route exact path='/consultar-empresa'>
+                <ConsultarEmpresa></ConsultarEmpresa>
               </Route>
           </Layout>
       </Switch>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Select, Form, Input, Button } from 'antd'
+import { Select, Form, Input, Button, InputNumber } from 'antd'
 
 export default function Rendimento() {
 
@@ -10,14 +10,14 @@ export default function Rendimento() {
     return (
         <>
             <Form layout='vertical' onFinish={handleSubmit}>
-                <Form.Item label='CNPJ'>
+                <Form.Item label='CNPJ' required>
                     <Input></Input>
                 </Form.Item>
                 <Form.Item label='Nome da empresa'>
                     <Input></Input>
                 </Form.Item>
                 <Form.Item label='Valor total recebido'>
-                    <Input></Input>
+                    <InputNumber min={100} formatter={value => `R$ ${value}`}></InputNumber>
                 </Form.Item>
                 <Form.Item label='INSS'>
                     <Input></Input>
