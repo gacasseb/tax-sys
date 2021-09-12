@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import { Descriptions, Input, Button, message } from 'antd'
 import { rendimento } from '../data'
+import axios from 'axios'
 
 const { Search } = Input
 
@@ -23,28 +24,29 @@ export default function ConsultarEmpresa() {
     const onSearch = () => {
         if ( ! search ) return;
 
-        let result = rendimento.find(val => val.empresa.nome === search);
-
-        if ( result ) {
-            message.success('Empresa encontrada!')
-            setModel(result);
-            return;
-        }
-
-        setModel({})
-        message.error('Não foi encontrado empresa com este nome.');
+        axios.get('http://localhost:80/api/empresa/' + search)
+        .then( res => {
+            if ( res.data ) {
+                message.success('Empresa encontrada!')
+                setModel(res.data);
+            }
+        })
+        .catch( err => {
+            setModel({})
+            message.error('Empresa não encontrada.')
+        })
     }
 
     const content = () => {
         if ( Object.keys(model).length !== 0 ) {
             return (
                 <Descriptions title="Informações da empresa" bordered> 
-                    <Descriptions.Item label="Nome da empresa" span={3}>{model.empresa.nome}</Descriptions.Item>
-                    <Descriptions.Item label="CNPJ" span={3}>{model.empresa.cnpj}</Descriptions.Item>
-                    <Descriptions.Item label="E-mail" span={3}>{model.empresa.email}</Descriptions.Item>
-                    <Descriptions.Item label="Endereço" span={3}>{model.empresa.endereco}</Descriptions.Item>
-                    <Descriptions.Item label="Telefone" span={3}>{model.empresa.telefone}</Descriptions.Item>
-                    <Descriptions.Item label="Celular" span={3}>{model.empresa.celular}</Descriptions.Item>
+                    <Descriptions.Item label="Nome da empresa" span={3}>{model.nome}</Descriptions.Item>
+                    <Descriptions.Item label="CNPJ" span={3}>{model.cnpj}</Descriptions.Item>
+                    {/* <Descriptions.Item label="E-mail" span={3}>{model.email}</Descriptions.Item> */}
+                    {/* <Descriptions.Item label="Endereço" span={3}>{model.empresa.endereco}</Descriptions.Item> */}
+                    {/* <Descriptions.Item label="Telefone" span={3}>{model.empresa.telefone}</Descriptions.Item> */}
+                    {/* <Descriptions.Item label="Celular" span={3}>{model.empresa.celular}</Descriptions.Item> */}
                 </Descriptions>
             )
         }
