@@ -57,7 +57,7 @@ export default function ConsultarRendimento() {
                                 <Descriptions.Item label="CPF" span={3}>{model.cpf}</Descriptions.Item>
                                 <Descriptions.Item label="Empresa" span={3}>{rendimento.empresa.nome}</Descriptions.Item>
                                 <Descriptions.Item label="CNṔJ" span={3}>{rendimento.empresa.cnpj}</Descriptions.Item>
-                                <Descriptions.Item label="Valor total recebido" span={3}>{`R$ ${model.valorTotal}`}</Descriptions.Item>
+                                <Descriptions.Item label="Valor total recebido" span={3}>{`R$ ${rendimento.valorTotal}`}</Descriptions.Item>
                                 <Descriptions.Item label="INSS" span={3}>{`R$ ${rendimento.inss}`}</Descriptions.Item>
                                 <Descriptions.Item label="IRRF Pago" span={3}>{`R$ ${rendimento.irrf}`}</Descriptions.Item>
                                 <Descriptions.Item label="Valor 13 salário" span={3}>{`R$ ${rendimento.decimoTerceiro}`}</Descriptions.Item>

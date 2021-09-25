@@ -80,7 +80,7 @@ export default function Rendimento() {
                     <Input maxLength={14}></Input>
                 </Form.Item>
                 <Form.Item label='Valor total recebido' name='valor_total'>
-                    <InputNumber min={100} formatter={value => `R$ ${value}`}></InputNumber>
+                    <InputNumber min={100}></InputNumber>
                 </Form.Item>
                 <Form.Item label='INSS' name='inss'>
                     <InputNumber></InputNumber>

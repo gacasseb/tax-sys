@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import axios from 'axios'
-import { Select, Form, Input, Button, Spin, message } from 'antd'
+import axios from 'axios';
+import { Select, Form, Input, Button, Spin, message } from 'antd';
+import { mask } from '../helpers/mask';
 
 export default function Empresa() {
 
@@ -23,26 +24,15 @@ export default function Empresa() {
         })
     }
 
-    const cnpjMask = (value) => {
-        if ( value ) {
-            return value
-                .replace(/\D/g, '') // substitui qualquer caracter que nao seja numero por nada
-                .replace(/(\d{3})(\d)/, '$1.$2') // captura 2 grupos de numero o primeiro de 3 e o segundo de 1, apos capturar o primeiro grupo ele adiciona um ponto antes do segundo grupo de numero
-                .replace(/(\d{3})(\d)/, '$1.$2')
-                .replace(/(\d{3})(\d{1,2})/, '$1-$2')
-                .replace(/(-\d{2})\d+?$/, '$1') // captura 2 numeros seguidos de um traço e não deixa ser digitado mais nada
-        }
-    }
-
     function form() {
         return (
-            <Form layout='vertical' onFinish={handleSubmit} form={formInstance} onValuesChange={(values) => {
+            <Form layout='vertical' onFinish={handleSubmit} form={formInstance} onValuesChange={(value, values) => {
                 formInstance.setFieldsValue({
                     ...values,
-                    cnpj: cnpjMask(values.cnpj)
+                    cnpj: mask(values.cnpj)
                 })
             }}>
-                <Form.Item label='Nome' name='name' rules={[{
+                <Form.Item label='Nome' name='nome' rules={[{
                     required: true,
                     message: 'Nome da empresa obrigatório'
                 }]}>

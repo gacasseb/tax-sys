@@ -35,13 +35,16 @@ export default function Pessoa() {
             <Form.Item label='Nome social' name='nome_social'>
                 <Input></Input>
             </Form.Item>
-            <Form.Item label='Endereço' name='address'>
+            <Form.Item label='Cidade' name='cidade'>
+                <Input></Input>
+            </Form.Item>
+            <Form.Item label='CEP' name='cep' rules={[{required: true, message: 'Insira um CEP'}]}>
+                <Input maxLength={10}></Input>
+            </Form.Item>
+            <Form.Item label='Complemento' name='complemento'>
                 <Input></Input>
             </Form.Item>
             <Form.Item label='E-mail' name='email'>
-                <Input></Input>
-            </Form.Item>
-            <Form.Item label='Telefone' name='telephone'>
                 <Input></Input>
             </Form.Item>
             <Form.Item label='CPF' name='cpf' rules={[{
@@ -56,7 +59,7 @@ export default function Pessoa() {
             }]}>
                 <Input></Input>
             </Form.Item>
-            <Form.Item label='Sexo' name='sexo'>
+            <Form.Item label='Sexo' name='sexo' rules={[{required: true, message: 'Selecione um sexo'}]}>
                 <Select placeholder='Selecione o sexo'>
                     <Select.Option value='m'>Masculino</Select.Option>
                     <Select.Option value='f'>Feminino</Select.Option>
